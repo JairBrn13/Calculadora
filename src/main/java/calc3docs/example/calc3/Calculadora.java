@@ -3,10 +3,9 @@ package calc3docs.example.calc3;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.io.InputStream;
+
 
 
 //Se crea la clase main
@@ -22,6 +21,8 @@ public class Calculadora extends Application {
         stage.setTitle("Calculator");
         // Se carga el scene
         stage.setScene(scene);
+        stage.setMaxHeight(435);
+        stage.setMaxWidth(575);
         // Se muestra el scene
         stage.show();
     }

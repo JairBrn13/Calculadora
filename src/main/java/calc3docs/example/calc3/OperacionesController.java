@@ -3,13 +3,12 @@ package calc3docs.example.calc3;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-import javafx.scene.image.ImageView;
+
 
 
 //Se crea la clase para el controlador y se utiliza el Initializable
@@ -100,7 +99,7 @@ public class OperacionesController implements Initializable {
             int op2 = edades[per2.getItems().indexOf(per2.getValue())];
 
             // Creo una instancia de la clase Operaciones
-            Operaciones o = new Operaciones(op1, op2);
+            Operaciones o = new Operaciones(Math.abs(op1), Math.abs(op2));
 
             // Realizo la suma
             int resultado = o.suma();
@@ -128,7 +127,7 @@ public class OperacionesController implements Initializable {
             int op2 = edades[per2.getItems().indexOf(per2.getValue())];
 
             // Creo una instancia de la clase Operaciones
-            Operaciones o = new Operaciones(op1, op2);
+            Operaciones o = new Operaciones(Math.abs(op1), Math.abs(op2));
 
             // Realizo la resta
             int resultado = o.resta();
@@ -155,7 +154,7 @@ public class OperacionesController implements Initializable {
             int op2 = edades[per2.getItems().indexOf(per2.getValue())];
 
             // Creo una instancia de la clase Operaciones
-            Operaciones o = new Operaciones(op1, op2);
+            Operaciones o = new Operaciones(Math.abs(op1), Math.abs(op2));
 
             // Realizo la multiplicación
             int resultado = o.mult();
@@ -182,7 +181,7 @@ public class OperacionesController implements Initializable {
             int op2 = edades[per2.getItems().indexOf(per2.getValue())];
 
             // Creo una instancia de la clase Operaciones
-            Operaciones o = new Operaciones(op1, op2);
+            Operaciones o = new Operaciones(Math.abs(op1), Math.abs(op2));
 
             // Realizo la division
             double resultado = o.division();
