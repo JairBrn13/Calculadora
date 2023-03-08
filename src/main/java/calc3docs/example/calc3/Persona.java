@@ -1,5 +1,5 @@
 package calc3docs.example.calc3;
-
+//Se crea la clase persona con su metodos get y set para cada respectivo parametro
 public class Persona {
 
     private String nombre;

@@ -1,5 +1,5 @@
 package calc3docs.example.calc3;
-
+// Se crea la clase operaciones, con los metodos de las 4 operaciones basicas de la calculadora
 public class Operaciones {
 
     private int a;
@@ -7,22 +7,6 @@ public class Operaciones {
 
     public Operaciones(int a, int b) {
         this.a = a;
-        this.b = b;
-    }
-
-    public int getA() {
-        return a;
-    }
-
-    public void setA(int a) {
-        this.a = a;
-    }
-
-    public int getB() {
-        return b;
-    }
-
-    public void setB(int b) {
         this.b = b;
     }
 

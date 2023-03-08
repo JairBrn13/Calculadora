@@ -3,18 +3,26 @@ package calc3docs.example.calc3;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-//import org.jetbrains.annotations.NotNull;
-
 import java.io.IOException;
+import java.io.InputStream;
 
+
+//Se crea la clase main
 public class Calculadora extends Application {
+    // Se crea el start para el proyecto y se crea el Stage
     @Override
     public void start(Stage stage) throws IOException {
+        // Se carga el archivo fmxl
         FXMLLoader fxmlLoader = new FXMLLoader(Calculadora.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 700, 500);
+        // Se carga el archivo anterior como scene
+        Scene scene = new Scene(fxmlLoader.load(), 575, 410);
+        // Se le asigna el titulo
         stage.setTitle("Calculator");
+        // Se carga el scene
         stage.setScene(scene);
+        // Se muestra el scene
         stage.show();
     }
 

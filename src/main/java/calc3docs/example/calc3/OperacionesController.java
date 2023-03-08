@@ -2,30 +2,21 @@ package calc3docs.example.calc3;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-import calc3docs.example.calc3.Operaciones;
-import calc3docs.example.calc3.Persona;
+import javafx.scene.image.ImageView;
 
 
+//Se crea la clase para el controlador y se utiliza el Initializable
 public class OperacionesController implements Initializable {
+    // Se crean los nodos que se usan en el documento fxml
 
-//public class HelloController {
-    @FXML
-    private Button plsbtn;
-    @FXML
-    private Button addbtn;
-    @FXML
-    private Button lessbtn;
-    @FXML
-    private Button divbtn;
-    @FXML
-    private Button perbtn;
+
     @FXML
     ComboBox per1;
     @FXML
@@ -38,18 +29,24 @@ public class OperacionesController implements Initializable {
     TextField age;
     @FXML
     TextField result;
+    // Se crea una variable contador y un array de tipo entero
     int contador = 0;
     int[] edades = new int[4];
 
+    // Se inicializa y se agregan los datos de las provincias al ComboBox respectivo
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         Provincias.getItems().addAll("San Jose","Alajuela","Cartago","Heredia","Guanacaste","Puntarenas","Limon");
+
     }
     @FXML
+    // Se hace el metodo para agregar persionas
     private void AgregarPersona(ActionEvent event){
         try{
+            //Verifica la cantidad de personas que hay agregadas
             if (contador < 4) {
+                // Se instancia un objeto de la clase Persona y se asignan sus datos de los text field
                 Persona per = new Persona();
                 String nombre = this.name.getText();
                 String provincia = Provincias.getValue().toString();
@@ -57,6 +54,7 @@ public class OperacionesController implements Initializable {
                 per.setNombre(nombre);
                 per.setEdad(edad);
                 per.setProvincia(provincia);
+                //agrega un número a las personas según el índice en el que están a partir del #1
                 if (contador>=1){
                     if(per.getNombre()==nombre){
                         per.setNombre(nombre +" #"+ contador+"");
@@ -65,7 +63,7 @@ public class OperacionesController implements Initializable {
                     else {
                         per.setNombre(nombre);
                     }
-
+                //Agrega las personas a la ComboBox y las edades al array
                 per1.getItems().add(per.getNombre());
                 per2.getItems().add(per.getNombre());
                 edades[contador] = per.getEdad();
@@ -76,14 +74,13 @@ public class OperacionesController implements Initializable {
             } else {
                 // Alerta de error
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                //alert.setHeaderText(null);
                 alert.setTitle("Error");
                 alert.setContentText("Numero maximo de personas");
                 alert.showAndWait();
             }
         }
         catch (NumberFormatException e) {
-
+            //Alerta de error
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Error");
@@ -91,16 +88,18 @@ public class OperacionesController implements Initializable {
             alert.showAndWait();
         }
 
+
     }
+    // Se crea el método suma
     @FXML
     private void suma(ActionEvent event) {
 
         try {
-            // Obtengo los parametros
+            // Obtengo los parámetros
             int op1 = edades[per1.getItems().indexOf(per1.getValue())];
             int op2 = edades[per2.getItems().indexOf(per2.getValue())];
 
-            // Creo una instancia del modelo
+            // Creo una instancia de la clase Operaciones
             Operaciones o = new Operaciones(op1, op2);
 
             // Realizo la suma
@@ -120,19 +119,18 @@ public class OperacionesController implements Initializable {
         }
 
     }
+    // Se crea el método resta
     @FXML
     private void resta(ActionEvent event) {
         try {
-            // Obtengo los parametros
+            // Obtengo los parámetros
             int op1 = edades[per1.getItems().indexOf(per1.getValue())];
             int op2 = edades[per2.getItems().indexOf(per2.getValue())];
-            System.out.println(op1);
-            System.out.println(op2);
 
-            // Creo una instancia del modelo
+            // Creo una instancia de la clase Operaciones
             Operaciones o = new Operaciones(op1, op2);
 
-            // Realizo la suma
+            // Realizo la resta
             int resultado = o.resta();
 
             // Muestro el resultado
@@ -148,19 +146,18 @@ public class OperacionesController implements Initializable {
             alert.showAndWait();
         }
     }
+    // Se crea el método multiplicación
     @FXML
     private void multiplicacion(ActionEvent event) {
         try {
-            // Obtengo los parametros
+            // Obtengo los parámetros
             int op1 = edades[per1.getItems().indexOf(per1.getValue())];
             int op2 = edades[per2.getItems().indexOf(per2.getValue())];
-            System.out.println(op1);
-            System.out.println(op2);
 
-            // Creo una instancia del modelo
+            // Creo una instancia de la clase Operaciones
             Operaciones o = new Operaciones(op1, op2);
 
-            // Realizo la suma
+            // Realizo la multiplicación
             int resultado = o.mult();
 
             // Muestro el resultado
@@ -176,19 +173,18 @@ public class OperacionesController implements Initializable {
             alert.showAndWait();
         }
     }
+    // Se crea el método division
     @FXML
     private void division(ActionEvent event) {
         try {
-            // Obtengo los parametros
+            // Obtengo los parámetros
             int op1 = edades[per1.getItems().indexOf(per1.getValue())];
             int op2 = edades[per2.getItems().indexOf(per2.getValue())];
-            System.out.println(op1);
-            System.out.println(op2);
 
-            // Creo una instancia del modelo
+            // Creo una instancia de la clase Operaciones
             Operaciones o = new Operaciones(op1, op2);
 
-            // Realizo la suma
+            // Realizo la division
             double resultado = o.division();
             if (op2 == 0) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
