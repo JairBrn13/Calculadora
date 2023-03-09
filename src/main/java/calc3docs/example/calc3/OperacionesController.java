@@ -11,10 +11,13 @@ import javafx.fxml.Initializable;
 
 
 
-//Se crea la clase para el controlador y se utiliza el Initializable
+/*
+Se crea la clase principal para el controlador y se utiliza el Initializable
+*/
 public class OperacionesController implements Initializable {
-    // Se crean los nodos que se usan en el documento fxml
-
+    /*
+    Se llaman los nodos que están siendo utilizados en el documento fxml
+     */
 
     @FXML
     ComboBox per1;
@@ -32,15 +35,22 @@ public class OperacionesController implements Initializable {
     int contador = 0;
     int[] edades = new int[4];
 
-    // Se inicializa y se agregan los datos de las provincias al ComboBox respectivo
+    /*
+     Se inicializa y se agregan los datos de las provincias al ComboBox respectivo
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         Provincias.getItems().addAll("San Jose","Alajuela","Cartago","Heredia","Guanacaste","Puntarenas","Limon");
 
     }
+    /*
+    A continuación se ecuentran todos los métodos que implementan lógica para desarrollar la calculadora
+     */
     @FXML
-    // Se hace el metodo para agregar persionas
+    /*
+     Se hace el método para agregar personas
+     */
     private void AgregarPersona(ActionEvent event){
         try{
             //Verifica la cantidad de personas que hay agregadas
@@ -89,7 +99,9 @@ public class OperacionesController implements Initializable {
 
 
     }
-    // Se crea el método suma
+    /*
+    Se crea el método suma, el cual toma los valores de edad indicados e implementa el método suma de la clase operaciones
+     */
     @FXML
     private void suma(ActionEvent event) {
 
@@ -118,7 +130,9 @@ public class OperacionesController implements Initializable {
         }
 
     }
-    // Se crea el método resta
+    /*
+    Se crea el método resta, el cual toma los valores de edad indicados e implementa el método resta de la clase operaciones
+     */
     @FXML
     private void resta(ActionEvent event) {
         try {
@@ -145,7 +159,9 @@ public class OperacionesController implements Initializable {
             alert.showAndWait();
         }
     }
-    // Se crea el método multiplicación
+    /*
+    Se crea el método multiplicación, el cual toma los valores de edad indicados e implementa el método mult de la clase operaciones
+     */
     @FXML
     private void multiplicacion(ActionEvent event) {
         try {
@@ -172,7 +188,9 @@ public class OperacionesController implements Initializable {
             alert.showAndWait();
         }
     }
-    // Se crea el método division
+    /*
+     Se crea el método division, el cual toma los valores de edad indicados e implementa el método division de la clase operaciones
+     */
     @FXML
     private void division(ActionEvent event) {
         try {
